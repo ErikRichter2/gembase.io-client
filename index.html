@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .gb-index-body {
+        margin: 0;
+        color: white;
+        background-image: linear-gradient(#1e1d31, #342f53);
+        font-family: montserrat, helvetica, sans-serif;
+      }
+      @keyframes gb-rotation-anim-frames {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .gb-index-container {
+        font-size: 2.5vmin;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .gb-index-container-body {
+        gap: 1.5em;
+        width: 80vmin;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .gb-index-logo {
+        filter: drop-shadow(0 0 10vh #00d5d5);
+        width: 100%;
+        height: auto;
+      }
+      .gb-index-loading {
+        padding: 0.7em 1.5em;
+        border-radius: 9999px;
+        gap: 0.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, black, rgb(0,0,0,0.2));
+      }
+      .gb-index-loading img {
+        width: 1.3em;
+        aspect-ratio: 1;
+        animation: 3s linear infinite gb-rotation-anim-frames;
+      }
+      #app {
+        display: contents;
+      }
+      * {
+        user-select: none;
+      }
+    </style>
+    <script src="https://app.getterms.io/cookie-consent/embed/e82b1d8c-fa5e-446a-9a57-3f97b5fc603d"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Gembase.io">
+    <meta name="keywords" content="Gembase.io">
+    <meta name="author" content="Gembase.io">
+    <link rel="icon" type="image/x-icon" href="/static/media/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,900">
+    <title>Gembase.io</title>
+  </head>
+  <body class="gb-index-body">
+      <!-- GOOGLE CLIENT UPTIME CHECKER a45c7bdc-19eb-4836-b662-d067e3242116 -->
+      <div id="app">
+          <div class="gb-index-container">
+              <div class="gb-index-container-body">
+                  <img class="gb-index-logo" src="/static/media/gembase/logos/white_full.svg" alt="Gembase">
+                  <div class="gb-index-loading">
+                      <img class="gb-index-loading-img" src="/static/media/gembase/home/v2/icons/loading_white.svg">
+                      <div>Loading ...</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
