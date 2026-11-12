@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="#ffffff" fill-rule="nonzero" id="svgGroup">
+   <rect height="65" id="svg_1" width="169" x="90" y="37"/>
+   <rect height="65" id="svg_2" width="196" x="90" y="167"/>
+   <rect height="65" id="svg_3" width="223" x="90" y="297"/>
+  </g>
+ </g>
+</svg>

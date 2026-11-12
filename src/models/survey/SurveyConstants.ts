@@ -1,0 +1,24 @@
+export default class SurveyConstants {
+    static readonly GENRES = 'Genres';
+    static readonly THEMES = 'Themes';
+    static readonly TOPICS = 'Topics';
+    static readonly NEEDS = 'Needs';
+    static readonly BEHAVIORS = 'Behaviors';
+    static readonly COMPETITORS = 'competitors';
+    static readonly ROUTINE = 'routine';
+    static readonly ROUTINE_OPEN = 'routine_open';
+    static readonly MOVIES = 'movies';
+    static readonly MOVIES_OPEN = 'movies_open';
+    static readonly HOBBIES = 'hobbies';
+    static readonly HOBBIES_OPEN = 'hobbies_open';
+    static readonly SOCIALS = 'socials';
+    static readonly SOCIALS_OPEN = 'socials_open';
+    static readonly DEVICES = 'devices';
+    static readonly CONCEPTS = 'concepts';
+    static readonly BEST_GAME = 'best_game';
+    static readonly ROLE = 'role';
+    static readonly PLAYING = 'playing';
+    static readonly SPENDING = 'spending';
+    static readonly SLAVIC_THEME = 'slavic_theme';
+    static readonly SINGLE_MULTI_PLAYER = 'single_multi_player';
+}
