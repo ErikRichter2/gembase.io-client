@@ -54,6 +54,7 @@ import { useFullscreenLoading } from '@/models/ui/FullscreenLoadingComposable'
 import { adminCommands } from '@/commands/adminCommands'
 import ClientError from '@/errors/clientError'
 import { useQueryModel } from '@/router/queryModelComposable'
+import { appEnv } from '@/appEnv'
 
 const portalStore = usePortalStore()
 const taggingStore = useTaggingStore()
@@ -866,7 +867,7 @@ const isAuditButtonDisabled = computed(() => {
                                 <div v-if="currentTabFinal === ETabId.TAGS" class="relative w-fit">
                                     <gb-button
                                         v-if="currentApp.app_type === AppTypeEnum.STORE"
-                                        :demo="portalStore.isAuditorLocked()"
+                                        :demo="appEnv.isDemo || portalStore.isAuditorLocked()"
                                         @click="editLabelsPopup = true"
                                         class="gbc-bg-primary"
                                         text="Fix wrong labels"
@@ -949,7 +950,7 @@ const isAuditButtonDisabled = computed(() => {
                                     "
                                     @click="copy"
                                     class="gbc-bg-primary"
-                                    :demo="portalStore.isAuditorLocked()"
+                                    :demo="appEnv.isDemo || portalStore.isAuditorLocked()"
                                     tooltip="Copy game"
                                     icon="copy"
                                 ></gb-button>
@@ -961,6 +962,7 @@ const isAuditButtonDisabled = computed(() => {
                                     class="gbc-bg-primary"
                                     icon="delete"
                                     tooltip="Remove game"
+                                    :demo="appEnv.isDemo"
                                 ></gb-button>
                                 <gb-button
                                     v-if="isEdit"

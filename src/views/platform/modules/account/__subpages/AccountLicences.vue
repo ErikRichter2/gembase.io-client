@@ -19,9 +19,9 @@ import {
 import router from '@/router'
 import { useSessionStore } from '@/stores/SessionStore'
 import { PORTAL_ROUTES } from '@/router/routes/PortalRoutes'
+import { appEnv } from '@/appEnv'
+import PortalUiRouterLink from '@/views/ui/router/PortalUiRouterLink.vue'
 
-const sessionStore = useSessionStore()
-const uiStore = useUiStore()
 const billingStore = useBillingStore()
 
 const remainingTooltip = ref<EBillingModuleId>()
@@ -42,9 +42,8 @@ const showSaveChanges = ref(false)
 onMounted(async () => {
     await billingStore.init()
     createData()
+    watch(() => billingStore.billingData, createData)
 })
-
-watch(() => billingStore.billingData, createData)
 
 function createData() {
     modulesSummary.value = billingStore.getModulesSummaryView
@@ -149,7 +148,7 @@ async function onSaveChanges() {
             }
             const domain = GembaseUtils.getEmailDomain(x.email)
             if (!billingStore.billingData.organization_domains.includes(domain)) {
-                const allowedDomains = billingStore.billingData.organization_domains.join(', ')
+                // const allowedDomains = billingStore.billingData.organization_domains.join(', ')
                 // todo error popup
                 // uiStore.showErrorPopupDefault(
                 //     `${x.email} is not allowed. All emails must be from following domains: ${allowedDomains}`,
@@ -401,6 +400,7 @@ async function onClose(force = false) {
                             class="gbc-bg-primary"
                             icon="plus"
                             text="Add account"
+                            :demo="appEnv.isDemo"
                         ></gb-button>
                     </div>
                     <div class="gb-inner-window">
@@ -425,13 +425,17 @@ async function onClose(force = false) {
                                 </div>
                             </div>
                             <div class="text-[12px] leading-3 w-14">Remaining users</div>
-                            <router-link :to="{ path: PORTAL_ROUTES.PORTAL_BILLING }">
+                            <portal-ui-router-link
+                                :disabled="appEnv.isDemo"
+                                :to="{ path: PORTAL_ROUTES.PORTAL_BILLING }"
+                            >
                                 <gb-button
                                     class="gbc-bg-primary"
                                     :icon="PortalConstants.ICON_UPGRADE_TO_PREMIUM"
                                     text="Add more"
+                                    :demo="appEnv.isDemo"
                                 ></gb-button>
-                            </router-link>
+                            </portal-ui-router-link>
                         </div>
                     </div>
                 </div>

@@ -21,6 +21,7 @@
                         class="gbc-bg-primary"
                         icon="email"
                         text="Send reset link"
+                        :disabled="appEnv.isDemo"
                     ></gb-button>
                     <gb-timeout
                         class="text-primary text-[0.65rem] bottom-[-22px] absolute"
@@ -42,6 +43,7 @@ import GbButton from '@/views/ui/buttons/GbButton.vue'
 import GbTimeout from '@/views/ui/timer/GbTimeout.vue'
 import GbWindow from '@/views/ui/popups/GbWindow.vue'
 import { publicCommands } from '@/commands/publicCommands'
+import { appEnv } from '@/appEnv'
 
 const email = ref('')
 const emailError = ref(false)

@@ -652,7 +652,7 @@ async function fakeLogin(email: string) {
         return
     }
 
-    router.push(PORTAL_ROUTES.PORTAL_HOME)
+    router.push(PORTAL_ROUTES.PORTAL_GUIDE)
 }
 
 async function changeTextValue(

@@ -252,7 +252,7 @@ function saveAndClose() {
                             {{ `Features pool ${index + 1}` }}
                         </div>
                         <div class="gb-layout-tc w-full gap-[2px] text-[0.8em]">
-                            <template v-for="(feature, index) in features" :key="feature">
+                            <template v-for="(feature, index) in features" :key="index">
                                 <studies-concepts-input-hints
                                     v-if="feature.pool_id === poolId"
                                     @on-delete="onDeleteFeature(index)"

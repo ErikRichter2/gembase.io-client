@@ -5,6 +5,7 @@ import { computed } from 'vue'
 import GbButton from '@/views/ui/buttons/GbButton.vue'
 import GbSvg from '@/views/ui/icons/GbSvg.vue'
 import BillingOrderSteps from '@/views/platform/modules/billing/__components/__components/BillingOrderSteps.vue'
+import { appEnv } from '@/appEnv'
 
 const billingStore = useBillingStore()
 
@@ -25,7 +26,7 @@ const buttonData = computed((): IButtonData | undefined => {
         return {
             icon: PortalConstants.ICON_NEXT,
             text: 'Continue',
-            disabled: billingStore.checkedModulesCount() == 0,
+            disabled: appEnv.isDemo || billingStore.checkedModulesCount() == 0,
         }
     }
 

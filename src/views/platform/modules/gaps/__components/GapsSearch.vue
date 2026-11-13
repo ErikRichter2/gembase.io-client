@@ -18,25 +18,6 @@
                 <!-- COUNTRIES DEMO >> -->
                 <div class="gb-inner-window w-full">
                     <div class="gb-layout-row w-full text-[0.8em] gap-2 pt-2">
-                        <div v-if="false" class="gb-layout-ml w-1/2 h-full">
-                            <div class="gb-layout-row pb-1 gap-2 pl-2">
-                                <gb-svg src="countries" class="w-[30px] h-[30px]"></gb-svg>
-                                <div class="text-[1.1em] font-bold">Countries</div>
-                            </div>
-                            <div class="gb-inner-window w-full">
-                                <div class="gb-layout-ml w-full gap-2 h-[80px]">
-                                    <div class="gb-layout-row pointer-events-none p-3 gap-1">
-                                        <img
-                                            :src="UiUtils.getFlagIcon('us')"
-                                            class="rounded-circle w-[20px] h-auto"
-                                        />
-                                    </div>
-                                    <div class="text-[0.8em] opacity-40">
-                                        More countries coming soon
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="gb-layout-ml w-1/2 h-full">
                             <div class="gb-layout-row pb-1 gap-2 pl-2">
                                 <gb-svg src="see_more" class="w-[30px] h-auto"></gb-svg>

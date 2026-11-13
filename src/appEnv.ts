@@ -50,6 +50,11 @@ class AppEnv {
     get serverRoot(): string {
         return import.meta.env.VITE_APP_SERVER_ROOT
     }
+
+    get isDemo(): boolean {
+        const v = import.meta.env.VITE_APP_IS_DEMO
+        return v === 'true'
+    }
 }
 
 export const appEnv = new AppEnv()

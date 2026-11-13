@@ -2,15 +2,17 @@ import { BaseCommands } from '@/commands/base/baseCommands'
 import { portalCommands } from '@/commands/portalCommands'
 import { publicCommands, type IUserData } from '@/commands/publicCommands'
 import ClientError from '@/errors/clientError'
+import router from '@/router'
+import { HOME_ROUTES } from '@/router/routes/HomeRoutes'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 
 export const useSessionStore = defineStore('session-store', () => {
     const _userData = ref<IUserData>()
 
     async function verifyUserIsLoggedOnServer() {
         const res = await publicCommands.getLoggedUserData()
-        if (res.user_id != null) {
+        if (res != null) {
             _userData.value = res
         }
     }
@@ -39,6 +41,9 @@ export const useSessionStore = defineStore('session-store', () => {
 
     async function logout() {
         await publicCommands.logout()
+        // Leave the logged-in views first, so nothing still mounted reads `userData` after it is cleared
+        await router.push(HOME_ROUTES.HOME_INDEX)
+        await nextTick()
         BaseCommands.setAuthToken(undefined)
         _userData.value = undefined
     }

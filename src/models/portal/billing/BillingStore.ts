@@ -80,13 +80,13 @@ export const useBillingStore = defineStore('billingStore', () => {
     const discounts = ref<BillingDiscountInstanceView[]>([])
     const query = useQueryModel<BillingQueryParams>({}).query
 
-    let _billingDataServer: IBillingData | undefined = undefined
+    const _billingDataServer = ref<IBillingData>()
 
     const billingData = computed(() => {
-        if (_billingDataServer === undefined) {
+        if (_billingDataServer.value === undefined) {
             throw new ClientError(`Billing data undefined`)
         }
-        return _billingDataServer
+        return _billingDataServer.value
     })
 
     async function init(force = false) {
@@ -101,7 +101,7 @@ export const useBillingStore = defineStore('billingStore', () => {
                 billingDetails.value = response.last_billing_details
             }
 
-            _billingDataServer = await billingCommands.getBillings()
+            _billingDataServer.value = await billingCommands.getBillings()
 
             modulesDataView.value.length = 0
             modules.value.length = 0

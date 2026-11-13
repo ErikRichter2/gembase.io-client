@@ -3,6 +3,7 @@ import GbButton from '@/views/ui/buttons/GbButton.vue'
 import { ref } from 'vue'
 import GbWindow from '@/views/ui/popups/GbWindow.vue'
 import { useSessionStore } from '@/stores/SessionStore'
+import { appEnv } from '@/appEnv'
 
 const sessionStore = useSessionStore()
 const tooltipCnt = ref(0)
@@ -33,6 +34,7 @@ function onConfirm() {
                 text="Send reset link"
                 :bottom-message-request="tooltipCnt"
                 bottom-message="Email has been sent …"
+                :demo="appEnv.isDemo"
             ></gb-button>
         </div>
     </gb-window>

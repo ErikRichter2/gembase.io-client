@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import portalRoutes from './routes/PortalRoutes'
+import portalRoutes, { PORTAL_ROUTES } from './routes/PortalRoutes'
 import surveyRoutes from './routes/SurveyRoutes'
 import homeRoutes, { HOME_ROUTES } from './routes/HomeRoutes'
 import { useSessionStore } from '@/stores/SessionStore'
@@ -27,7 +27,11 @@ router.beforeEach(async (to) => {
     if (!sessionStore.isLogged) {
         await sessionStore.verifyUserIsLoggedOnServer()
         if (!sessionStore.isLogged) {
-            return { path: HOME_ROUTES.HOME_SIGN_IN, query: { redirect: to.fullPath } }
+            if (to.path === PORTAL_ROUTES.PORTAL_SIGN_OUT) {
+                return { path: HOME_ROUTES.HOME_INDEX }
+            } else {
+                return { path: HOME_ROUTES.HOME_SIGN_IN, query: { redirect: to.fullPath } }
+            }
         }
     }
 

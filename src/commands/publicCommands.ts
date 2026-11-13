@@ -2,7 +2,6 @@ import type { DevDetail } from '@/models/portal/apps/AppsData'
 import { BaseCommands } from './base/baseCommands'
 
 export interface IUserData {
-    user_id: number
     role: string
     tos_agree_t: number
     tutorial_finished: boolean

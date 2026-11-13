@@ -59,7 +59,7 @@ export const useRegistrationStore = defineStore('registrationStore', () => {
         if (registrationConfirmDef.value.state === 'whitelist_pending') {
             show.value = 'whitelist_pending'
         } else if (registrationConfirmDef.value.state === 'platform') {
-            await router.push(PORTAL_ROUTES.PORTAL_HOME)
+            await router.push(PORTAL_ROUTES.PORTAL_GUIDE)
         } else if (registrationConfirmDef.value.state === 'register') {
             show.value = 'password'
         } else {
@@ -81,9 +81,9 @@ export const useRegistrationStore = defineStore('registrationStore', () => {
                 BaseCommands.setAuthToken(response.login_data.auth_token)
                 await sessionStore.verifyUserIsLoggedOnServer()
             }
-            await router.push(PORTAL_ROUTES.PORTAL_HOME)
+            await router.push(PORTAL_ROUTES.PORTAL_GUIDE)
         } else if (response.state === 'updated') {
-            router.push({ path: PORTAL_ROUTES.PORTAL_HOME, query: { reload_page: 'true' } })
+            router.push({ path: PORTAL_ROUTES.PORTAL_GUIDE, query: { reload_page: 'true' } })
         } else {
             await router.push(HOME_ROUTES.HOME_INDEX)
         }
@@ -109,7 +109,7 @@ export const useRegistrationStore = defineStore('registrationStore', () => {
         const response = await usersCommands.confirmTos()
         if (response.state === 'ok') {
             sessionStore.userData.tos_agree_t = GembaseUtils.serverTimestamp()
-            await router.push(PORTAL_ROUTES.PORTAL_HOME)
+            await router.push(PORTAL_ROUTES.PORTAL_GUIDE)
         }
     }
 

@@ -1,6 +1,5 @@
 export enum PORTAL_ROUTES {
     PORTAL_INDEX = '/portal',
-    PORTAL_HOME = '/portal/home',
     PORTAL_SIGN_OUT = '/portal/sign-out',
     PORTAL_ACCOUNT = '/portal/account',
     PORTAL_ACCOUNT_DETAILS = '/portal/account/details',
@@ -40,7 +39,7 @@ export default [
         children: [
             {
                 path: PORTAL_ROUTES.PORTAL_INDEX,
-                redirect: PORTAL_ROUTES.PORTAL_HOME,
+                redirect: PORTAL_ROUTES.PORTAL_GUIDE,
             },
             {
                 path: PORTAL_ROUTES.PORTAL_SIGN_OUT,

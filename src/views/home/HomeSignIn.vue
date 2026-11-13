@@ -81,6 +81,7 @@ import { ServerError } from '@/errors/serverError'
 import { HOME_ROUTES } from '@/router/routes/HomeRoutes'
 import router from '@/router'
 import { PORTAL_ROUTES } from '@/router/routes/PortalRoutes'
+import { appEnv } from '@/appEnv'
 
 const sessionStore = useSessionStore()
 const fullscreenLoading = useFullscreenLoading()
@@ -101,7 +102,13 @@ onMounted(async () => {
     await sessionStore.verifyUserIsLoggedOnServer()
 
     if (sessionStore.isLogged) {
-        await router.push(PORTAL_ROUTES.PORTAL_INDEX)
+        await router.push(PORTAL_ROUTES.PORTAL_GUIDE)
+    } else {
+        if (appEnv.isDemo) {
+            email.value = 'demo@erichter.online'
+            password.value = 'demo'
+            onLogin()
+        }
     }
 
     fullscreenLoading.hide()

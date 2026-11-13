@@ -13,16 +13,6 @@
             </div>
         </div>
 
-        <div v-if="false" class="sections-menu">
-            <div
-                class="menu-point"
-                :class="{ active: homePageScrollModel.data.value.activeSection?.id === index - 1 }"
-                @click="homePageScrollModel.scrollToSection(index - 1)"
-                v-for="index in homePageScrollModel.data.value.sections.length"
-                :key="index"
-            ></div>
-        </div>
-
         <section
             class="fullpage text-[1vmin] leading-[1.2vmin] md:text-[0.5vmin] md:leading-[0.5vmin]"
         >
@@ -644,12 +634,14 @@ import { HOME_ROUTES } from '@/router/routes/HomeRoutes'
 import { PORTAL_ROUTES } from '@/router/routes/PortalRoutes'
 import { useSessionStore } from '@/stores/SessionStore'
 import router from '@/router'
+import { useFullscreenLoading } from '@/models/ui/FullscreenLoadingComposable'
 
 const uiStore = useUiStore()
 
 const selectedModuleButtons = ref<string[]>([])
 const featuresStripe1 = ref<HTMLElement>()
 const featuresStripe2 = ref<HTMLElement>()
+const fullscreenLoading = useFullscreenLoading()
 
 const featuresTexts = [
     `FULL Access from $ ${PortalConstants.FULL_ACCESS_PRICE} / year!`,
@@ -670,12 +662,14 @@ function toggleModuleButton(item: string) {
 }
 
 async function enterPlatform() {
+    fullscreenLoading.show({ reason: 'enterPlatform' })
     const errorId = await useSessionStore().loginDemo()
     if (errorId !== undefined) {
         router.push(HOME_ROUTES.HOME_SIGN_IN)
         return
     }
     router.push(PORTAL_ROUTES.PORTAL_GUIDE)
+    fullscreenLoading.hide('enterPlatform')
 }
 
 const challengeCards = [

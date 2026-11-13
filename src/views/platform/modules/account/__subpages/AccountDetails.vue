@@ -8,6 +8,7 @@ import GbButton from '@/views/ui/buttons/GbButton.vue'
 import GbWindow from '@/views/ui/popups/GbWindow.vue'
 import { useFullscreenLoading } from '@/models/ui/FullscreenLoadingComposable'
 import { useSessionStore } from '@/stores/SessionStore'
+import { appEnv } from '@/appEnv'
 
 const sessionStore = useSessionStore()
 const portalStore = usePortalStore()
@@ -102,6 +103,7 @@ async function onConfirm() {
                     class="gbc-bg-primary"
                     icon="check_single"
                     text="Confirm"
+                    :demo="appEnv.isDemo"
                 ></gb-button>
             </div>
         </div>

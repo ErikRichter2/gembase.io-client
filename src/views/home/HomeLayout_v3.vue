@@ -108,7 +108,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { homePageScrollModel } from '@/models/home/HomePageScrollModel'
 import PortalUiRouterLink from '@/views/ui/router/PortalUiRouterLink.vue'
 import GbSvg from '@/views/ui/icons/GbSvg.vue'
