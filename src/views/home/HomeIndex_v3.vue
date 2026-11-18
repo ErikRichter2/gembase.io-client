@@ -466,6 +466,7 @@
                         <div class="gb-separator"></div>
                     </div>
                 </div>
+                <!--
                 <div class="w-full md:w-full gb-layout-row relative md:top-[-7em]">
                     <div class="w-full h-full">
                         <carousel
@@ -512,9 +513,11 @@
                         </carousel>
                     </div>
                 </div>
+                -->
             </div>
         </section>
 
+        <!--
         <section
             class="fullpage text-[1vmin] leading-[1.2vmin] md:text-[0.6vmin] md:leading-[0.7vmin] pt-[20vh] md:pt-0"
             :id="uiStore.isMobile ? 'company' : ''"
@@ -570,7 +573,7 @@
                 </div>
             </div>
         </section>
-
+        -->
         <section
             :id="uiStore.isMobile ? 'meet-us' : ''"
             data-section-name="meet-us"
@@ -773,14 +776,14 @@ onUnmounted(() => {
     document.getElementsByTagName('body')[0].style.overflow = ''
     homePageScrollModel.destroyed()
 })
-
+/*
 function responsiveItemsToShow(cnt: number): number {
     if (uiStore.isMobile) {
         return 1
     }
     return cnt
 }
-
+*/
 interface IUseCase {
     title: string
     imagePrefix: string
@@ -923,7 +926,7 @@ const useCases: IUseCase[] = [
         ],
     },
 ]
-
+/*
 const persons: {
     id: string
     firstName: string
@@ -938,17 +941,6 @@ const persons: {
     color?: string
 }[] = [
     {
-        id: 'dolezal',
-        firstName: 'Pavel',
-        lastName: 'Dolezal',
-        tags: '#product',
-        linkedin: 'https://www.linkedin.com/in/pavel-dolezal-8b293992/',
-        img: 'pavel_dolezal-1.png',
-        position: 'CEO',
-        bio1: 'Interested in innovation, finances and psychology',
-        bio2: '3y as innovation director<br>7y as mobile games product manager<br>Led teams of 10 – 30 people.',
-    },
-    {
         id: 'richter',
         firstName: 'Erik',
         lastName: 'Richter',
@@ -959,74 +951,8 @@ const persons: {
         bio1: 'Interested in data tools and games development.',
         bio2: '10y as mobile games software engineer<br>5y as finance software developer<br>Led teams of up to 5 people.',
     },
-    {
-        id: 'singh',
-        firstName: 'Shum',
-        lastName: 'Singh',
-        tags: '#strategy',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/shum-singh-985231/',
-        img: 'shum_singh.png',
-        position: 'Chairman of Supervisory Board',
-        bio2: '25y at Agnitio Capital, M&A Banker & Investor in a large number of Gaming companies of various stages',
-        color: 'y',
-    },
-    {
-        id: 'coulon',
-        firstName: 'Michel',
-        lastName: 'Coulon',
-        tags: '#research',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/michel-coulon-07640717/',
-        img: 'michel_coulon.png',
-        bio2: '19y at EA, Glu & Wargaming, ex Research Director for consumer insights and strategic planning',
-        color: 'b',
-    },
-    {
-        id: 'vij',
-        firstName: 'Rudi',
-        lastName: 'Vij',
-        tags: '#partnerships',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/rudi-vij-mobile-app-promotion-9217b957/',
-        img: 'rudi_vij-1.png',
-        bio2: '8y at Google, BD Manager for EMEA Mobile Apps Promotion',
-        color: 'g',
-    },
-    {
-        id: 'lee',
-        firstName: 'Steve',
-        lastName: 'Lee',
-        tags: '#partnerships',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/8teve/',
-        img: 'stephen_lee.png',
-        bio2: 'Head of Business Development at DECA Games with 23y of experience',
-        color: 'g',
-    },
-    {
-        id: 'hegely',
-        firstName: 'Erik',
-        lastName: 'Hegely',
-        tags: '#growth',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/erikhegely/',
-        img: 'erik_hegely-1.png',
-        bio2: '5y as mobile games growth director<br>5y as ecommerce marketer',
-        color: 'y',
-    },
-    {
-        id: 'pechac',
-        firstName: 'Matej',
-        lastName: 'Pechac',
-        tags: '#ai',
-        role: 'advisor',
-        linkedin: 'https://www.linkedin.com/in/matej-pech%C3%A1%C4%8D-573546127/',
-        img: 'matej_pechac.png',
-        bio2: '3y as AI software engineer<br>5y as mobile games developer<br>3y as finance software developer',
-        color: 'b',
-    },
 ]
+*/
 </script>
 
 <style scoped>

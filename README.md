@@ -60,6 +60,21 @@ src/
   appEnv.ts      Environment config (reads VITE_APP_* variables)
 ```
 
+## Running with Docker
+
+The client has a multi-stage `Dockerfile`: Node builds the app, and the final image is just nginx serving
+`dist/` (`nginx.conf` includes the history-mode fallback). The easiest way to run it is together with the API
+and database, using the `docker-compose.yml` in [gembase.io-server](../gembase.io-server):
+
+```bash
+# in gembase.io-server, with gembase.io-client cloned next to it
+cp docker.env.example docker.env
+docker compose up --build
+```
+
+The client is then available at http://localhost:8080. The API address is baked in at build time through the
+`VITE_APP_SERVER_ROOT` build argument.
+
 ## Running locally
 
 Requires Node.js 22+.
